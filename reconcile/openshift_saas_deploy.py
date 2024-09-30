@@ -222,6 +222,8 @@ def run(
         "enable_init_projects",
         default=False,
     )
+    if enable_init_projects:
+        logging.info("init_projects for clusters is enabled")
     ri, oc_map = ob.fetch_current_state(
         namespaces=[ns.dict(by_alias=True) for ns in saasherder.namespaces],
         thread_pool_size=thread_pool_size,
